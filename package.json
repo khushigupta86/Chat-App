@@ -1,0 +1,22 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+   "build": "npm install --prefix backend && npm install --prefix chatapp && npm run build --prefix chatapp",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khushigupta86/chatapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/khushigupta86/chatapp/issues"
+  },
+  "homepage": "https://github.com/khushigupta86/chatapp#readme"
+}
