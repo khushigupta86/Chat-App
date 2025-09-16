@@ -36,7 +36,11 @@ try {
     });
 
     if(newUser){
-        generateToken(newUser._id);
+        // generateToken(newUser._id);
+        // await newUser.save();
+
+        const savedUser = await newUser.save();
+        generateToken(savedUser._id,res);
         await newUser.save();
 
         res.status(201).json({
