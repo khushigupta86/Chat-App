@@ -1,19 +1,17 @@
-import React from 'react'
-import { useAuthStore } from '../store/useAuthStore.js'
+import { useState } from "react";
+import { useAuthStore } from "../store/useAuthStore";
 import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 import { MessageCircleIcon, MailIcon, LoaderIcon, LockIcon } from "lucide-react";
 import { Link } from "react-router";
-import { useState } from 'react';
 
 function LoginPage() {
-    const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const { login, isLoggingIn } = useAuthStore();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login(formData);
   };
-
 
   return (
    <div className="w-full flex items-center justify-center p-4 bg-slate-900">
