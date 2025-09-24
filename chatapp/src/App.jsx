@@ -30,9 +30,10 @@ function App() {
 
 
     <Routes>
-      <Route path="/login" element={!authUser? <LoginPage /> : <Navigate to="/" />} />
-      <Route path="/signup" element={!authUser? <SignUpPage /> : <Navigate to="/" />} />
-      <Route path="/chat" element={authUser? <ChatPage /> : <Navigate to="/login" />} />
+       <Route path="/" element={authUser? <ChatPage /> : <Navigate to={"/login"} />} />
+      <Route path="/login" element={!authUser? <LoginPage /> : <Navigate to={"/" }/>} />
+      <Route path="/signup" element={!authUser? <SignUpPage /> : <Navigate to={"/"} />} />
+     
     </Routes>
 
     <Toaster/>
