@@ -1,8 +1,9 @@
-
 import { useState,useRef } from 'react'
 import { LogOutIcon, VolumeOffIcon, Volume2Icon } from 'lucide-react'
 import { useChatStore } from '../store/useChatStore'
 import { useAuthStore } from '../store/useAuthStore'
+
+const mouseClickSound = new Audio("/mouse-click.mp3");
 
 
 function ProfileHeader() {
@@ -14,8 +15,18 @@ function ProfileHeader() {
  const fileInputRef = useRef(null);
 
  const handleImageUpload = (e)=>{
+    const file=e.target.files[0];
+    if(!file) return;
 
+    const reader=new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onloadend=async()=>{
+      const base64data=reader.result;
+      setSelectedImg(base64data);
+      await updateProfile({profilePic:base64data});
  }
+}
 
   
 
